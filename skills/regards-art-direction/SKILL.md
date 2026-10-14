@@ -224,9 +224,12 @@ not finished. Order of work:
    video, drawing, crops and treatments.
 5. **The live thing** from step 4, in the section where it proves the claim, with real content, a
    thumb-sized phone version and a plain fallback.
-6. **Fullness.** Look at each desktop screen as a poster: one dominant thing and the content it
+6. **Material.** Give the page its material (§ Material below): colour as whole fields, printed things
+   drawn as paper, line work that carries data, at most one metal accent. Restraint makes a page tidy;
+   material makes it one worth showing.
+7. **Fullness.** Look at each desktop screen as a poster: one dominant thing and the content it
    carries. One deliberate rest per page is the limit. Running text is in the full ink at 16px or more.
-7. **States and semantics.** Real links and buttons, visible focus, alt text, a phone layout that is
+8. **States and semantics.** Real links and buttons, visible focus, alt text, a phone layout that is
    its own composition.
 
 Read `references/type.md`, `references/colour.md` and `references/layout.md` when you need the detail
@@ -309,8 +312,14 @@ and lets a reference lift it, once, for a reason. A device marked * may appear o
 
 Then add the rule's id to `allow` in `.taste-skill/direction.json` (`hairline`, `outlined-box`, `mono`,
 `numbering`, `micro-label` or `dashed`), for example `{ "source": "regards", "allow": ["hairline"] }`,
-and list it in the report. Gradients, glass, shadows, emoji, eyebrows, icon cards and assistant
-palettes are never lifted.
+and list it in the report.
+
+Two material exceptions follow the same three steps, with their own third condition (§ Material):
+`shadow`, for one soft shadow under a physical object the page shows as an object (a sheet, a ticket, a
+card in a clip) because it really lifts off the page, never under panels, interface cards or buttons;
+and `palette-purple`, when violet or indigo is one of several whole colour fields taken from a reference,
+never a violet accent, glow or tint on a neutral page. Gradients, glass, glows, emoji, eyebrows, icon
+cards and the cream-and-terracotta palette are never lifted.
 
 Three places keep their own conventions and are left alone by the inspector: real code in
 `<pre>`/`<code>`, real tables and form fields, and a real interface fragment whose root carries the
@@ -318,6 +327,32 @@ attribute `data-ui` (see `references/imagery.md` §7).
 
 Removing ornament leaves space. Never fill it with another ornament. Fill it with scale, with the full
 content, with a picture made for this subject, or with a field of flat colour.
+
+## Material
+
+What separated the pages people wanted to show from the merely correct ones, in runs of this skill
+that were then pushed by hand. Check every section against it in step 8.
+
+- **Colour as whole fields.** A palette of three to six saturated colours plus ink, taken from the
+  references and the subject. Give sections their own field, with hard steps from dark to light between
+  neighbours: ink type on the light fields, white on the dark ones. Several confident fields beat one
+  accent on a safe neutral. Pairs that read as generated: navy with yellow, cream or beige with anything,
+  a dark page with a single accent colour.
+- **Printed things are objects.** A ticket, note, contract page or label is drawn as paper: grain from
+  within at the device pixel (a canvas at `devicePixelRatio`; each pixel a small signed offset that
+  averages to zero, so the sheet keeps its colour with no grey veil; rarer darker pits; a few faint
+  fibres), ink that catches the tooth, a cut edge. Never a tiled noise image or an overlay filter. An
+  object may tilt a few degrees, run off the frame, overlap its neighbour and cast one soft shadow.
+- **Line work carries data.** Fields of short strokes that lie flat and bend where something happened,
+  ticks that measure real values, leaders with small square handles from a note to what it explains,
+  brackets on the lines that matter. Draw them in SVG or canvas so they stay crisp at any zoom; every
+  line points at something real. This is how a hairline or dashed exception is spent well.
+- **One material accent.** Polished metal (chrome with reflected bands, silver with fine grain) on one
+  to three small objects: a clip, a button, a rim. Never a whole interface, never metal type.
+- **Type with one voice.** A confident grotesk sets the page; a second face, often a serif, is kept for
+  one voice only (the product's own words, a printed document).
+- **Every section a poster.** One huge thing, small precise secondary type, the full content, nothing
+  crowded. If a section would not hold the whole screen on its own, it is not finished.
 
 ## Laws of the craft
 
@@ -338,7 +373,8 @@ Short form, from tasteskill's study of 247 gallery sites (`references/research.m
 - Each section has a different composition from its neighbours; none is a card grid.
 
 **Colour**
-- One ground, one ink, one accent. The accent appears on the action and perhaps one other thing.
+- One ink, one accent, one ground per section (a section may take its own field: § Material). The accent
+  appears on the action and perhaps one other thing.
 - Running text in the full ink. Surfaces are separated by a small step in tone.
 - A section may change the whole field colour. Nothing fades into anything.
 

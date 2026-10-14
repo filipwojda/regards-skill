@@ -34,6 +34,9 @@ their MCP settings). Without it the skill falls back to tasteskill's deal and sa
 - The look step adds a reference pass: each section beside the section it drew on. Took the named
   thing? Looks like none of them?
 - Never copy: no section, layout, copy, picture, mark or licensed typeface taken from a reference.
+- Material: colour as whole fields, printed things drawn as paper with grain from within, line work that
+  carries data, at most one metal accent, every section a poster. Two narrow earned exceptions (`shadow`
+  under a physical object, `palette-purple` as one of several fields) so the inspector agrees with it.
 
 `references/regards.md` has the search recipes and the specimen format. `references/draw.md` is the
 original deal, kept as the fallback.
