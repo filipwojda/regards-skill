@@ -87,7 +87,19 @@ recipes, good and bad specimen notes, and the mutation moves. The short form:
 the thing you are trying to leave. Search for what your inventory names and what it could become:
 its printed things ("a price list set like a printed label"), its materials ("raw paper, stamps,
 packaging"), its measurements ("numbers and ticks that measure something real"), its feeling, and any
-site the user named ("sites like <their site> but quieter"). Three passes:
+site the user named ("sites like <their site> but quieter").
+
+**A kind of site the user asks for is a filter, and it holds.** The category to leave is the client's,
+in your query words. When the user wants references from some kinds of site only ("only SaaS, AI and
+product websites, no studios, agencies, portfolios or fashion"), that request wins for every search in
+this step: set `categories` and `exclude_categories` on `search_sections` and `similar_sections` where
+they list them (regards.design's kinds: `saas`, `ai`, `product`, `technology`, `finance`, `agency` for
+studios and agencies, `portfolio`, `fashion` and more), and keep searching from the inventory inside
+them. Where the tools don't list them, say it in every query and leave out the sites of kinds you were
+told to skip with `exclude_sites`. Check each hit's kind (`category`, or the site) and reject any the
+user ruled out. Never add a kind of site the user did not ask for.
+
+Three passes:
 
 1. **Mood:** two or three short searches for the overall feeling, from different angles (layout,
    type, imagery, texture).
@@ -99,7 +111,10 @@ site the user named ("sites like <their site> but quieter"). Three passes:
    results feel safe; novelty runs from 1 (template) to 5.
 
 Instant search is the default and is rate-limited per minute; Deep search costs a credit, so keep it
-for a nuanced brief, a "not X", or sites like a named one.
+for a nuanced brief, a "not X", or sites like a named one. A whole brief handed over the way an agent
+would is the nuanced kind: "We're designing <what, for whom>. Find detailed sections we can use as
+inspiration for this section: <the section, its claim and what it must show>" (and the kinds of site
+asked for, as above).
 
 **Look before you keep.** A hit's summary is one line; the design is in the pixels. Open every hit you
 might use with `view_section` and reject most of them. Use `get_section` for a section's text, sizes

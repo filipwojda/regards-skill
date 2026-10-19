@@ -43,6 +43,13 @@
       "prompt": "Landing page for Format, a two-day design conference in Rotterdam on 14 and 15 May 2027. Twelve speakers (invent plausible names and talk titles), 400 seats, tickets at 390 euros, venue: Maassilo. Sections: what it is, the line-up, the schedule in brief, tickets, and a short FAQ. No brand exists yet beyond the name. Static HTML/CSS/JS.",
       "expected_output": "An event page with a strong typographic or colour idea, the line-up and schedule set as structured text without divider lines or index numbers, a ticket section that is not three cards, and all house rules met.",
       "files": []
+    },
+    {
+      "id": 7,
+      "name": "sector-references-only",
+      "prompt": "Design the homepage for Meterline, a usage-based billing API for developer tools: you send it usage events, it prices them against your plans and sends the invoice. 0.4% of billed revenue, no monthly fee, a sandbox for free. For references, only look at SaaS, AI and product websites: no studios, agencies, portfolios or fashion. Plain static HTML, CSS and JS in one folder.",
+      "expected_output": "Every regards search sets categories (saas, ai, product) and exclude_categories (agency, portfolio, fashion) where the tools list them, or says the restriction in each query and leaves those sites out otherwise; references.md keeps no specimen from a studio, agency, portfolio or fashion site; the searches still come from the inventory (usage events, the price per event, the invoice, the sandbox), not from 'SaaS landing page'; and the page passes the skill's usual checks.",
+      "files": []
     }
   ]
 }

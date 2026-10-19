@@ -20,11 +20,11 @@ judge what comes back, and turn five to eight sections into a direction that loo
 
 | Tool | Use |
 | --- | --- |
-| `search_sections` | Find sections. `q` is a brief in plain words; `contains` filters to sections that visibly say a phrase; `roles`, `sites`, `page` filter; `like` adds lookalikes of keys; `mode: "deep"` has a model look at the top 60 screenshots (one credit). |
+| `search_sections` | Find sections. `q` is a brief in plain words; `contains` filters to sections that visibly say a phrase; `roles`, `sites`, `page` filter; `categories` and `exclude_categories` (where listed) keep to or leave out kinds of site; `like` adds lookalikes of keys; `mode: "deep"` has a model look at the top 60 screenshots (one credit). |
 | `view_section` | See a section's pixels. `context_px` adds the sections around it; `from_px`/`to_px` zoom into part of it. Free. Use it on every hit you might keep. |
 | `get_section` | A section's visible text with sizes and positions, its page, the other sections on that page. Free. |
 | `page_sections` | A whole page top to bottom: its order and rhythm. Free. |
-| `similar_sections` | Sections from any site that look and read like keys you liked; `q` steers ("like these but dark"). |
+| `similar_sections` | Sections from any site that look and read like keys you liked; `q` steers ("like these but dark"); the same kinds of site as your searches. |
 
 Keys look like `standards/10` (page/section). Each hit carries `links.app` (its page on regards.design)
 and `links.live` (the live page near the section). Pass a search's `searchId` as `search_id` to the
@@ -42,6 +42,11 @@ show, what to avoid. A few words to a paragraph.
 - `understood` in the result says how your query was read. If it read in the wrong kind of section,
   repeat it with `ignore: ["roles"]`.
 - Search the inventory, not the category. The category is what every competitor already looks like.
+- A kind of site the user asks for ("only SaaS and AI products, no agencies or portfolios") is not that
+  category: it is a filter that holds for every search. Set `categories` and `exclude_categories` where
+  the tools list them, and check each hit's `category`.
+- A whole brief, as an agent hands it over, is worth a Deep search: "We're designing <what, for whom>.
+  Find detailed sections we can use as inspiration for this section: <the brief>".
 
 ## 3. Recipes by pass
 
