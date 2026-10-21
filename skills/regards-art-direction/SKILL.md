@@ -141,12 +141,21 @@ for a whole page's rhythm (when one site fits, its page often beats another sear
 
 - A capture can show a long section's other parts with it, a sticky header or banner repeated down the
   page, or the edge of the next section. Those come from the capture, not the design: judge the
-  section, and crop to it with `from_px`/`to_px`.
+  section, and crop to it with `from_px`/`to_px`. `keys` in `view_section`'s answer lists every part it
+  stitched together; judge only the one you asked for. When a component is cut at the section's edge,
+  view the section before or after it.
 - Check what the search was told to keep out: a dark page under "not dark", a kind of site the user
   ruled out. Reject it, and leave it out of the next searches with `exclude_keys`.
 - Steer `similar_sections` with what you want ("like these but light"), not with what to leave out. If
   its `applied` shows your words read as things to avoid, use `search_sections` with `like` and
   `ignore: ["avoid"]` instead.
+
+**Splitting the research across subagents.** Give every subagent the same brief form, the same kinds of
+site and `exclude_sites`, the keys already used, the limit of about four Deep searches at a time across
+all of them, and one output: a list of `{section, key, site, live, image, caption}`, where `image` is the
+saved `view_section` file and the caption reads "Take <the component, named precisely>. For <the
+product>, <what it becomes>." On a board with many references per section, keep at most two from one
+site in a section.
 
 **Keep five to eight references, one thing from each,** or as many as the user asks for. Never more than
 one from the same site; pass the keys you kept for other claims as `exclude_keys`, so one section does not
@@ -319,7 +328,8 @@ and recipes. Run the inspector once more and check every screenshot for content 
 
 ### 10. Report
 
-Tell the user, briefly: the searches you ran (the queries, in a list); the specimen sheet, each
+Tell the user, briefly: the searches you ran (the queries, in a list, how many were Deep and how many
+Instant, and any Deep search that failed and was asked again); the specimen sheet, each
 reference with its regards link, its live link, what you took and what it became; any house-rule
 exception and the reference that earned it; the idea sentence and the live thing; the final scores
 from your last critique round and what still falls short; every found picture and clip with its

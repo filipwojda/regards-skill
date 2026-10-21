@@ -57,6 +57,13 @@
       "prompt": "Landing page for Harbor & Hull, a boatyard in Mystic, Connecticut that restores wooden sailboats: winter storage for 40 boats, a two-year waiting list for full restorations, and a small shop of bronze fittings. Sections: what they do, restorations underway, storage, the shop, how to get on the list. Light pages only, nothing dark. Plain static HTML, CSS and JS in one folder.",
       "expected_output": "Every component search is a Deep search (mode deep) whose q is the section's whole brief in the form \"We're designing <what, for whom>. Find detailed sections we can use as inspiration for this section: ...\", describing the boatyard without naming it; mood searches are short Instant ones; a Deep search that fails is asked again as Deep rather than continued on Instant; no more than about four Deep searches run at once; first results flagged in notices are asked again before any are kept; queries say \"white page, light mode, not dark\" and dark hits are rejected and passed as exclude_keys; and the page passes the skill's usual checks.",
       "files": []
+    },
+    {
+      "id": 9,
+      "name": "reference-board-with-subagents",
+      "prompt": "Find section references for the homepage of Shelfwise, a small edge computer that runs open AI models in shops and warehouses: it watches shelves through the cameras already there, answers staff questions by voice, and takes card payments at the counter. The page has six sections: hero, how the box works with existing cameras and terminals, the spec sheet, payments, fleet management, and a closing call to action. At least ten references per section, only from SaaS, AI and hardware-product websites, light pages only. Put them in .taste-skill/references.md with one caption each. Use subagents if it helps.",
+      "expected_output": "Every subagent gets the same brief form, kinds of site, exclude_sites, the keys already used and the limit of about four Deep searches at a time across all of them, and returns {section, key, site, live, image, caption}; each section is searched with a Deep brief that describes Shelfwise without naming it, and at least 80% of searches that carry a section brief are Deep; a Deep search that fails or returns first results is asked again as Deep; references.md keeps at least ten references per section, at most two from one site in a section, none from a studio, agency, portfolio or fashion site and none on a dark page, each with a 'Take ... For Shelfwise, ...' caption naming one component; stitched parts in view_section's keys are judged only for the part asked for; and the report lists the queries with how many were Deep and how many Instant.",
+      "files": []
     }
   ]
 }

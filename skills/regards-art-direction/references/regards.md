@@ -15,6 +15,7 @@ judge what comes back, and turn five to eight sections into a direction that loo
 6. Mutation moves
 7. The never-copy test
 8. Worked example
+9. Real searches, good and bad
 
 ## 1. The tools
 
@@ -122,6 +123,10 @@ becomes: our layout
 Then the direction, one line each: idea sentence; hero (specimen); each section in argument order
 (specimen); type; palette; motion; the signature detail.
 
+For a reference board the user will read (many references per section, often gathered by subagents),
+one caption per reference does the same job in two sentences: "Take <the component, named precisely>.
+For <the product>, <what it becomes>."
+
 ## 6. Mutation moves
 
 A reference becomes yours when you move it. Use at least one move per specimen.
@@ -177,3 +182,70 @@ Earned exception: `numbering`, because the footnote numbers point at real notes 
 accession numbers are real.
 
 Idea sentence: On this page, **the seeds that come back** become **a catalogue that annotates itself**.
+
+## 9. Real searches, good and bad
+
+From a real job in October 2026: section references for the homepage of an edge-AI product (a small
+computer that runs open models in stores and warehouses, with cameras, kiosks and payment terminals
+around it). The client asked for SaaS, AI and hardware-product sites only, white mode. The client's
+name is left out here, as it should be in the queries. Seven subagents briefed this way ran 60 Deep
+searches and 4 Instant ones and kept 178 references. An agent without the brief form, on an earlier day,
+ran 1 Deep search out of 14.
+
+**Section briefs that worked (Deep):**
+
+```
+We're designing the homepage for an edge-AI company: one hardware and software stack (a small edge
+computer plus endpoints like cameras, kiosks, tablets, smart glasses and payment terminals) that lets
+AI agents work on site in stores, restaurants and warehouses. Find detailed sections we can use as
+inspiration for this section: "Seven vendors, or one stack." Today a payment terminal, POS, register,
+tablet, camera, kiosk and wearables each come from a different vendor with its own hardware, SDK and
+API. We replace them with one hardware platform and one SDK. We want many separate logos, devices or
+tools converging into one hub, hub-and-spoke diagrams, or a before/after comparison of fragmented
+tools against one platform. Only from SaaS, AI and product company websites, not design studios,
+agencies, portfolios or fashion. White mode only.
+```
+
+```
+We're designing the homepage for an edge-AI hardware and software company. Find detailed sections we
+can use as inspiration for this section: model tuning, "Describe the task. Our agents tune the model."
+The customer brings the task, data and acceptance goals; a chain of agents (guide, label,
+post-training, training and inference) handles distillation, quantization and on-device retesting. We
+want an agent workflow or pipeline diagram, numbered stages, agent cards passing work along, and the
+progress UI of a training or evaluation run. Only from SaaS, AI and developer-platform websites, not
+design studios, agencies, portfolios or fashion. White mode only.
+```
+
+A detail brief works the same way: "...Find detailed sections we can use as inspiration for this
+detail: minimal pill buttons with a subtle inner highlight, soft bevel and soft shadow, tactile buttons
+on a white page."
+
+**Specimens it found, as board captions:**
+
+```
+adaline/05      Take the floating run window: numbered steps with RUNNING and QUEUED pills, thin
+                progress bars, before-and-after cost and latency bars. For the product, the tuning
+                run: guide, label, post-train, then retest on the box.
+blindpay/01     Take three white status chips (tick, tick, spinner) joined by dotted connectors that
+                fan into one tabbed code card. For the product, semi-integrated payments: send the
+                sale, card tapped, approved, then the one request behind it.
+pencil/06       Take the soft-bevelled dial: a raised disc with an inner highlight inside a tick ring,
+                a big number in the middle. For the product, a 400 TOPS gauge beside the spec sheet.
+voidzero/00     Take the small mono pill tags joined to an exploded stack by dotted leader lines, the
+                active one filled dark. For the product, callouts pointing at parts of the box photo.
+```
+
+**What went wrong:**
+
+- Studio, fashion, furniture and car sites were kept for their look. The client rejected every one:
+  the kinds of site they asked for are a filter (section 2).
+- `"status"` in a query brought back footers. "A live status chip with a dot and a count beside a
+  headline" brought back status chips.
+- `contains: "paid"` matched "Paid search" in footnotes.
+- `similar_sections` with `q: "exploded isometric stacks, architecture diagrams"` applied
+  `avoid: ["dark", "isometric"]` and left out the very thing asked for.
+- An early Deep answer (`understood: null`, "first results") was judged as final and was full of
+  portfolios and shops. The same search again gave the real results.
+- Searches with "avoid dark" still returned dark sections: about four in ten candidates had to be
+  dropped by looking.
+- 16 Deep searches started in the same minute across subagents; that minute had all of the failures.
