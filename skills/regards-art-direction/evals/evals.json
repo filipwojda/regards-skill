@@ -50,6 +50,13 @@
       "prompt": "Design the homepage for Meterline, a usage-based billing API for developer tools: you send it usage events, it prices them against your plans and sends the invoice. 0.4% of billed revenue, no monthly fee, a sandbox for free. For references, only look at SaaS, AI and product websites: no studios, agencies, portfolios or fashion. Plain static HTML, CSS and JS in one folder.",
       "expected_output": "Every regards search sets categories (saas, ai, product) and exclude_categories (agency, portfolio, fashion) where the tools list them, or says the restriction in each query and leaves those sites out otherwise; references.md keeps no specimen from a studio, agency, portfolio or fashion site; the searches still come from the inventory (usage events, the price per event, the invoice, the sandbox), not from 'SaaS landing page'; and the page passes the skill's usual checks.",
       "files": []
+    },
+    {
+      "id": 8,
+      "name": "deep-section-briefs",
+      "prompt": "Landing page for Harbor & Hull, a boatyard in Mystic, Connecticut that restores wooden sailboats: winter storage for 40 boats, a two-year waiting list for full restorations, and a small shop of bronze fittings. Sections: what they do, restorations underway, storage, the shop, how to get on the list. Light pages only, nothing dark. Plain static HTML, CSS and JS in one folder.",
+      "expected_output": "Every component search is a Deep search (mode deep) whose q is the section's whole brief in the form \"We're designing <what, for whom>. Find detailed sections we can use as inspiration for this section: ...\", describing the boatyard without naming it; mood searches are short Instant ones; a Deep search that fails is asked again as Deep rather than continued on Instant; no more than about four Deep searches run at once; first results flagged in notices are asked again before any are kept; queries say \"white page, light mode, not dark\" and dark hits are rejected and passed as exclude_keys; and the page passes the skill's usual checks.",
+      "files": []
     }
   ]
 }

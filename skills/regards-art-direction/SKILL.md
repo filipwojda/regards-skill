@@ -103,25 +103,54 @@ Three passes:
 
 1. **Mood:** two or three short searches for the overall feeling, from different angles (layout,
    type, imagery, texture).
-2. **Components:** one search per claim in your argument (the hero, the list or menu, the proof, the
-   booking, the footer), plus one for detail: line work, borders and frames, how numbers are shown.
+2. **Components:** one Deep search per claim in your argument (the hero, the list or menu, the proof,
+   the booking, the footer), each with its whole brief (below), plus one for detail: line work, borders
+   and frames, how numbers are shown.
 3. **Widen and drift:** `similar_sections` from the two or three keys you liked best, and one oblique
    search that is deliberately far from the brief (a word from the subject's world, or an empty query,
    which browses the most distinctive sections). Ask for "experimental" or "unusual" in words when the
    results feel safe; novelty runs from 1 (template) to 5.
 
-Instant search is the default and is rate-limited per minute; Deep search costs a credit, so keep it
-for a nuanced brief, a "not X", or sites like a named one. A whole brief handed over the way an agent
-would is the nuanced kind: "We're designing <what, for whom>. Find detailed sections we can use as
-inspiration for this section: <the section, its claim and what it must show>" (and the kinds of site
-asked for, as above).
+**Search each component with Deep** (`mode: "deep"`) and hand it the whole brief, the way you would
+brief a designer: "We're designing <what it is and for whom>. Find detailed sections we can use as
+inspiration for this section: <the claim, what the section must show, the look in concrete words, what
+to avoid>", and the kinds of site asked for, as above. Deep is the more careful search and reads all of
+it. It takes about half a minute and uses one credit: a Deep search that fails isn't charged, the same
+search again the same day isn't charged again, and with no credits left it is answered as Instant and
+says so. So don't ration it:
+
+- "Search failed" means ask the same search again, as Deep. One failure is no reason to run the rest of
+  the research on Instant.
+- First results that say so in `notices` are not the answer yet: ask the same search again (free)
+  before you judge them.
+- Run about four Deep searches at a time, not a dozen at once, counting parallel agents.
+- Instant (the default, seconds) is for the mood pass's short searches, a named site's own sections and
+  `contains`.
+
+**Words that find the right sections.** Describe the product; never name it, since a name regards
+doesn't hold is read as a site to look like ("isn't in the index yet"). Describe the look and the
+structure, not the section's usual name: "a ledger of line items with tabular figures" finds what
+"comparison table" doesn't. Say the light you want as well as the dark you don't ("white page, light
+mode, not dark"). `contains` keeps sections that visibly show a phrase, small print included: use it for
+words a section is about, never for a theme.
 
 **Look before you keep.** A hit's summary is one line; the design is in the pixels. Open every hit you
-might use with `view_section` and reject most of them. Use `get_section` for a section's text, sizes
-and page, `page_sections` for a whole page's rhythm.
+might use with `view_section` and reject most of them: look over candidates at `max_px` 900 or so, and
+at full size the ones you keep. Use `get_section` for a section's text, sizes and page, `page_sections`
+for a whole page's rhythm (when one site fits, its page often beats another search).
 
-**Keep five to eight references, one thing from each.** Never more than one from the same site. For each,
-write a specimen line in `.taste-skill/references.md`:
+- A capture can show a long section's other parts with it, a sticky header or banner repeated down the
+  page, or the edge of the next section. Those come from the capture, not the design: judge the
+  section, and crop to it with `from_px`/`to_px`.
+- Check what the search was told to keep out: a dark page under "not dark", a kind of site the user
+  ruled out. Reject it, and leave it out of the next searches with `exclude_keys`.
+- Steer `similar_sections` with what you want ("like these but light"), not with what to leave out. If
+  its `applied` shows your words read as things to avoid, use `search_sections` with `like` and
+  `ignore: ["avoid"]` instead.
+
+**Keep five to eight references, one thing from each,** or as many as the user asks for. Never more than
+one from the same site; pass the keys you kept for other claims as `exclude_keys`, so one section does not
+answer two. For each, write a specimen line in `.taste-skill/references.md`:
 
 ```
 profound/08 · https://www.regards.design/sections/profound/08 · live: https://www.tryprofound.com/
@@ -141,6 +170,10 @@ a reference's licensed typeface), the palette (proportions from the references, 
 subject's own material where it has any), the motion, and the signature detail someone would
 screenshot. Re-read this sheet before each section you make.
 
+**When the user turns references down,** find out why: the kind of site they come from, how little they
+say about this product, or the look. Put the answer in the next brief (or in `exclude_categories`),
+and leave the keys turned down out with `exclude_keys`.
+
 **The reference competitor test.** Put the nearest real competitor through your searches. If it would
 end up with the same specimens, your searches came from the category: search again from the inventory.
 
@@ -149,8 +182,8 @@ illustrations, photographs or brand marks from a reference. The test, applied in
 finished section beside the reference it drew on. If a visitor could mistake one for the other, mutate
 further.
 
-**Fallback without regards.** If the tools are missing or fail, deal a direction from the bundled
-library the way tasteskill does (`references/draw.md`), and say in the report that the direction was
+**Fallback without regards.** If the tools are missing, or still fail after you have asked again, deal a
+direction from the bundled library the way tasteskill does (`references/draw.md`), and say in the report that the direction was
 dealt, not researched.
 
 ### 4. Find the idea

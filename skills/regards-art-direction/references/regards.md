@@ -20,11 +20,11 @@ judge what comes back, and turn five to eight sections into a direction that loo
 
 | Tool | Use |
 | --- | --- |
-| `search_sections` | Find sections. `q` is a brief in plain words; `contains` filters to sections that visibly say a phrase; `roles`, `sites`, `page` filter; `categories` and `exclude_categories` (where listed) keep to or leave out kinds of site; `like` adds lookalikes of keys; `mode: "deep"` has a model look at the top 60 screenshots (one credit). |
+| `search_sections` | Find sections. `q` is a brief in plain words; `contains` filters to sections that visibly say a phrase; `roles`, `sites`, `page` filter; `categories` and `exclude_categories` (where listed) keep to or leave out kinds of site; `like` adds lookalikes of keys; `mode: "deep"` is the more careful search for a brief: about half a minute and one credit, none if it fails. |
 | `view_section` | See a section's pixels. `context_px` adds the sections around it; `from_px`/`to_px` zoom into part of it. Free. Use it on every hit you might keep. |
 | `get_section` | A section's visible text with sizes and positions, its page, the other sections on that page. Free. |
 | `page_sections` | A whole page top to bottom: its order and rhythm. Free. |
-| `similar_sections` | Sections from any site that look and read like keys you liked; `q` steers ("like these but dark"); the same kinds of site as your searches. |
+| `similar_sections` | Sections from any site that look and read like keys you liked; `q` steers with what you want ("like these but light"), not what to leave out; the same kinds of site as your searches. |
 
 Keys look like `standards/10` (page/section). Each hit carries `links.app` (its page on regards.design)
 and `links.live` (the live page near the section). Pass a search's `searchId` as `search_id` to the
@@ -35,10 +35,16 @@ tools you use on its results.
 Brief it the way you would brief a designer: the kind of section, the look and feeling, what it must
 show, what to avoid. A few words to a paragraph.
 
-- Several short searches from different angles find more than one long one.
+- With Instant, several short searches from different angles find more than one long one. For a
+  component, one Deep search with its whole brief beats both.
+- Describe the product, never name it: a name regards doesn't hold is read as a site to look like.
+- Describe the look and structure, not the section's usual name: "a catalogue index as a table", not
+  "product grid"; "numbers set large with their units", not "stats".
+- Say the light you want as well as the dark you don't: "white page, light mode, not dark".
 - Name a site to anchor a direction: "navigation like stripe.com but warmer".
 - Ask for novelty in words: "experimental", "unusual", "conventional".
-- Quotes do not filter. For sections that literally show a phrase, use `contains`.
+- Quotes do not filter. For sections that literally show a phrase, use `contains`; it matches small
+  print too, so keep it for words a section is about.
 - `understood` in the result says how your query was read. If it read in the wrong kind of section,
   repeat it with `ignore: ["roles"]`.
 - Search the inventory, not the category. The category is what every competitor already looks like.
