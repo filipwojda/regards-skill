@@ -101,7 +101,7 @@ user ruled out. Never add a kind of site the user did not ask for.
 
 Three passes:
 
-1. **Mood:** two or three short searches for the overall feeling, from different angles (layout,
+1. **Mood:** two or three short Instant searches for the overall feeling, from different angles (layout,
    type, imagery, texture).
 2. **Components:** one Deep search per claim in your argument (the hero, the list or menu, the proof,
    the booking, the footer), each with its whole brief (below), plus one for detail: line work, borders
@@ -111,28 +111,40 @@ Three passes:
    which browses the most distinctive sections). Ask for "experimental" or "unusual" in words when the
    results feel safe; novelty runs from 1 (template) to 5.
 
-**Search each component with Deep** (`mode: "deep"`) and hand it the whole brief, the way you would
-brief a designer: "We're designing <what it is and for whom>. Find detailed sections we can use as
-inspiration for this section: <the claim, what the section must show, the look in concrete words, what
-to avoid>", and the kinds of site asked for, as above. Deep is the more careful search and reads all of
-it. It takes about half a minute and uses one credit: a Deep search that fails isn't charged, the same
-search again the same day isn't charged again, and with no credits left it is answered as Instant and
-says so. So don't ration it:
+**Search each component with Deep,** the default for a search with words (where `search_sections` lists
+`mode`), and hand it the whole brief, the way you would brief a designer: "We're designing <what it is
+and for whom>. Find detailed sections we can use as inspiration for this section: <the claim, what the
+section must show, the look in concrete words, what to avoid>", and the kinds of site asked for, as
+above. Deep is the more careful search and reads all of it. It takes about half a minute and uses one
+credit: a Deep search that fails isn't charged, the same search again the same day isn't charged again,
+and with no credits left it is answered as Instant and says so. So don't ration it:
 
 - "Search failed" means ask the same search again, as Deep. One failure is no reason to run the rest of
   the research on Instant.
 - First results that say so in `notices` are not the answer yet: ask the same search again (free)
   before you judge them.
 - Run about four Deep searches at a time, not a dozen at once, counting parallel agents.
-- Instant (the default, seconds) is for the mood pass's short searches, a named site's own sections and
-  `contains`.
+- Set `mode: "instant"` (seconds) for quick looks: the mood pass's short searches and a named site's own
+  sections. Browsing with an empty `q`, `contains` alone and `like` are Instant anyway.
 
 **Words that find the right sections.** Describe the product; never name it, since a name regards
 doesn't hold is read as a site to look like ("isn't in the index yet"). Describe the look and the
 structure, not the section's usual name: "a ledger of line items with tabular figures" finds what
 "comparison table" doesn't. Say the light you want as well as the dark you don't ("white page, light
 mode, not dark"). `contains` keeps sections that visibly show a phrase, small print included: use it for
-words a section is about, never for a theme.
+words a section is about, never for a theme. Colours named in `q` are read from it ("white with orange
+accents"). To hold the results to exact colours, a brand's palette or one the user picked, pass them as hex
+in `colors` where `search_sections` lists it (`["#ff5500", "#0b0b0b"]`): sections that show every one rank
+first, the closest first, and `ignore: ["colors"]` drops colours it read that you didn't mean. Check with
+`view_section` that they held; a summary doesn't show them.
+
+**Search with a picture** where the tools list `upload_image` (for agents that can run a shell command).
+When the user has a page or a mockup, it is the quickest way to stronger alternatives: screenshot it a
+section at a time (PNG, JPEG or WebP; shrink a large one), send each with the `curl` command
+`upload_image` answers with, and pass the id it returns as `search_sections`' `image`. `q` says what you
+want from it: "replacements for this hero" or "a better version for this product" with the section's
+brief, "the opposite" for the drift pass, "like this but light", or nothing for lookalikes. Where the tools
+don't list it, search from words.
 
 **Look before you keep.** A hit's summary is one line; the design is in the pixels. Open every hit you
 might use with `view_section` and reject most of them: look over candidates at `max_px` 900 or so, and
@@ -329,10 +341,10 @@ and recipes. Run the inspector once more and check every screenshot for content 
 ### 10. Report
 
 Tell the user, briefly: the searches you ran (the queries, in a list, how many were Deep and how many
-Instant, and any Deep search that failed and was asked again); the specimen sheet, each
-reference with its regards link, its live link, what you took and what it became; any house-rule
-exception and the reference that earned it; the idea sentence and the live thing; the final scores
-from your last critique round and what still falls short; every found picture and clip with its
+Instant, any Deep search that failed and was asked again, and any picture you searched with); the
+specimen sheet, each reference with its regards link, its live link, what you took and what it became;
+any house-rule exception and the reference that earned it; the idea sentence and the live thing; the
+final scores from your last critique round and what still falls short; every found picture and clip with its
 credit and where the credit sits on the page; and any sample content that must be swapped before
 launch. If the direction was dealt from the fallback library, say so. Do not claim a check you did not run.
 
@@ -451,12 +463,14 @@ Short form, from tasteskill's study of 247 gallery sites (`references/research.m
 ## Special cases
 
 **An existing brand or design system.** Keep its colours and faces, search regards for composition
-and components only, and map the brand onto the roles. If the brand itself requires a banned device,
-keep it, say so, and pass `--allow <rule>` to the inspector for that rule only.
+and components only, and map the brand onto the roles. To see the palette at work, pass its colours as hex
+in `colors` on a search or two. If the brand itself requires a banned device, keep it, say so, and pass
+`--allow <rule>` to the inspector for that rule only.
 
 **Redesign or review of an existing page.** Run `lint.mjs` and `inspect.mjs` on it first and report what
 they find, then critique the screenshots. For a redesign, research from step 3 with the page's real
-content as the inventory.
+content as the inventory. Where the tools list `upload_image`, search with the page itself: a screenshot of
+each section, with "replacements for this <section>" and its brief.
 
 **A component or a single section, not a page.** Search regards for that kind of section, keep two or
 three specimens, match the surrounding design, apply the house rules, and still inspect the result.

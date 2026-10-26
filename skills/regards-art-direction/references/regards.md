@@ -21,7 +21,8 @@ judge what comes back, and turn five to eight sections into a direction that loo
 
 | Tool | Use |
 | --- | --- |
-| `search_sections` | Find sections. `q` is a brief in plain words; `contains` filters to sections that visibly say a phrase; `roles`, `sites`, `page` filter; `categories` and `exclude_categories` (where listed) keep to or leave out kinds of site; `like` adds lookalikes of keys; `mode: "deep"` is the more careful search for a brief: about half a minute and one credit, none if it fails. |
+| `search_sections` | Find sections. `q` is a brief in plain words; `contains` filters to sections that visibly say a phrase; `roles`, `sites`, `page` filter; `categories` and `exclude_categories` (where listed) keep to or leave out kinds of site; `colors` (hexes, where listed) ranks first the sections that show every one; `like` adds lookalikes of keys; `image` (where listed) searches with a picture sent with `upload_image`. A search with words or a picture is Deep by default where `mode` is listed: the more careful search for a brief, about half a minute and one credit, none if it fails. `mode: "instant"` is for quick looks, seconds; browsing with an empty `q` and no picture, `contains` alone and `like` are always Instant. |
+| `upload_image` | Where listed, for agents that can run a shell command: a link and the `curl` command that sends a picture to it (a screenshot, a mockup, a photo of a sketch; PNG, JPEG or WebP, shrink a large one). The id it answers with goes in `search_sections`' `image`. A link works for 15 minutes, for as many pictures as you need; a picture is kept 30 days, for this account's searches only. |
 | `view_section` | See a section's pixels. `context_px` adds the sections around it; `from_px`/`to_px` zoom into part of it. Free. Use it on every hit you might keep. |
 | `get_section` | A section's visible text with sizes and positions, its page, the other sections on that page. Free. |
 | `page_sections` | A whole page top to bottom: its order and rhythm. Free. |
@@ -36,12 +37,16 @@ tools you use on its results.
 Brief it the way you would brief a designer: the kind of section, the look and feeling, what it must
 show, what to avoid. A few words to a paragraph.
 
-- With Instant, several short searches from different angles find more than one long one. For a
-  component, one Deep search with its whole brief beats both.
+- With Instant (`mode: "instant"`), several short searches from different angles find more than one long
+  one. For a component, one Deep search with its whole brief beats both.
 - Describe the product, never name it: a name regards doesn't hold is read as a site to look like.
 - Describe the look and structure, not the section's usual name: "a catalogue index as a table", not
   "product grid"; "numbers set large with their units", not "stats".
 - Say the light you want as well as the dark you don't: "white page, light mode, not dark".
+- Colours named in `q` are read from it: "white with orange accents", "a navy and cream palette". For
+  exact colours, a brand's palette or one the user picked, pass hexes in `colors`:
+  `["#ff5500", "#0b0b0b"]`. Sections that show every one rank first, the closest first.
+  `ignore: ["colors"]` drops colours it read that you didn't mean. Check with `view_section` that they held.
 - Name a site to anchor a direction: "navigation like stripe.com but warmer".
 - Ask for novelty in words: "experimental", "unusual", "conventional".
 - Quotes do not filter. For sections that literally show a phrase, use `contains`; it matches small
@@ -72,6 +77,14 @@ show, what to avoid. A few words to a paragraph.
 - Booking or action: "a booking section that feels like a ticket"
 - Footer: "footer that closes the page with the name at full width"
 - Detail: "interesting line work", "experimental borders and frames", "numbers and ticks that measure something real", "a chart drawn like a scientific plate"
+
+**From a picture (where `upload_image` is listed).** When the user has a page or a mockup, send a
+screenshot of each section with `upload_image` and search with its id in `image`. Deep reads the picture
+and the words together, so add the section's brief.
+
+- "replacements for this hero" or "a better version for this product": sections that could do its job, better
+- "the opposite": sections that differ from it in what defines it, for the drift pass
+- "like this but light", or an empty `q`: lookalikes, with a change or without
 
 **Widen and drift.**
 
