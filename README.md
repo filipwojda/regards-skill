@@ -43,7 +43,7 @@ original deal, kept as the fallback.
 
 ## Requirements
 
-Node 22+ and Chrome, Edge or Chromium for `inspect.mjs`. A regards.design plan for the MCP server.
+Node 22+ and Chrome, Edge or Chromium for `inspect.mjs`. A regards.design account for the MCP server, on any plan, Free included.
 
 ## Credit
 
