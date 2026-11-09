@@ -64,13 +64,20 @@ falls back to tasteskill's deal and says so. The server signs in with your regar
 `references/regards.md` has the search recipes and the specimen format. `references/draw.md` is the
 original deal, kept as the fallback.
 
+## Interactions
+
+`skills/regards-interactions` is a second, smaller skill for motion: hover states, menus, scroll reveals,
+easing curves and durations, "make this feel like dub's navbar". It searches interactions recorded on live
+websites with the server's `search_interactions`, reads their timing and curves as measured, and turns one
+into code. The art-direction skill's motion reference points to it.
+
 ## Requirements
 
 Node 22+ and Chrome, Edge or Chromium for `inspect.mjs`. A regards.design account for the MCP server, on any plan, Free included.
 
 ## Plugin files
 
-One skill in `skills/`, one server, a manifest per agent: `.claude-plugin/` and `.mcp.json` for Claude Code,
+Two skills in `skills/`, one server, a manifest per agent: `.claude-plugin/` and `.mcp.json` for Claude Code,
 `plugin.json`, `mcp.json` and `.agents/plugins/` for Codex and other Agent Plugins clients, `.cursor-plugin/`
 for Cursor and `gemini-extension.json` for Gemini CLI. They share one description; change it in all of them.
 

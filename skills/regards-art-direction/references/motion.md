@@ -13,6 +13,13 @@ Read this before adding any animation. The static page must already be finished 
 6. Reduced motion and performance
 7. What gives generated motion away
 
+## Real interactions first
+
+When the regards.design MCP server lists `search_interactions`, search it before you write a hover, a press, a
+menu, a reveal or a curve: it holds interactions recorded on real sites, each with its timing and curves as the
+browser measured them. The `regards-interactions` skill says how to search them and turn one into code. Take the
+timing and the order of the beats from what you find; the tokens and recipes below are the fallback.
+
 ## 1. The budget
 
 A page that does not move reads as a mock-up; the inspector counts what moves while the page loads and
