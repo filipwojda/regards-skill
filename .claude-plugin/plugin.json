@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "regards",
+  "displayName": "regards.design",
+  "description": "Your agent researches real websites before it designs one: it searches regards.design's hand-picked website sections by look, keeps the ones that fit the brief and derives the direction from them. Comes with the regards.design MCP server.",
+  "author": {
+    "name": "Filip Wojda",
+    "url": "https://www.regards.design"
+  },
+  "homepage": "https://www.regards.design/skill",
+  "repository": "https://github.com/filipwojda/regards-skill",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "web-design",
+    "art-direction",
+    "design-inspiration",
+    "landing-page",
+    "frontend",
+    "ui",
+    "mcp",
+    "agent-skills"
+  ],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://docs.regards.design",
+  "supportUrl": "https://www.regards.design/support",
+  "privacyPolicyUrl": "https://www.regards.design/privacy",
+  "termsOfServiceUrl": "https://www.regards.design/terms"
+}

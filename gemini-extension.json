@@ -1,0 +1,10 @@
+{
+  "name": "regards",
+  "version": "1.0.0",
+  "description": "Your agent researches real websites before it designs one: it searches regards.design's hand-picked website sections by look, keeps the ones that fit the brief and derives the direction from them. Comes with the regards.design MCP server.",
+  "mcpServers": {
+    "regards": {
+      "httpUrl": "https://mcp.regards.design/mcp"
+    }
+  }
+}
