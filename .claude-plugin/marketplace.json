@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "regards",
+  "description": "regards.design for coding agents: art direction from real website sections, and the MCP server that searches them.",
+  "owner": {
+    "name": "Filip Wojda",
+    "url": "https://www.regards.design"
+  },
+  "plugins": [
+    {
+      "name": "regards",
+      "source": "./",
+      "description": "Your agent researches real websites before it designs one: it searches regards.design's hand-picked website sections by look, keeps the ones that fit the brief and derives the direction from them. Comes with the regards.design MCP server.",
+      "category": "design",
+      "tags": [
+        "design",
+        "web-design",
+        "inspiration",
+        "mcp"
+      ]
+    }
+  ]
+}

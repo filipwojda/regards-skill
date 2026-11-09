@@ -1,0 +1,48 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "regards",
+  "version": "1.0.0",
+  "description": "Your agent researches real websites before it designs one: it searches regards.design's hand-picked website sections by look, keeps the ones that fit the brief and derives the direction from them. Comes with the regards.design MCP server.",
+  "author": {
+    "name": "Filip Wojda",
+    "url": "https://www.regards.design"
+  },
+  "homepage": "https://www.regards.design/skill",
+  "repository": "https://github.com/filipwojda/regards-skill",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "web-design",
+    "art-direction",
+    "design-inspiration",
+    "landing-page",
+    "frontend",
+    "ui",
+    "mcp",
+    "agent-skills"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "regards.design",
+        "shortDescription": "Design from real websites",
+        "longDescription": "regards art direction makes your coding agent research real websites before it designs one. For each brief it searches regards.design, a hand-picked library of 3,000+ real website sections (heroes, navigation, pricing, footers) searchable by look, views the best hits, keeps five to eight and names what it takes from each. The direction (hero, sections, type, palette, motion) comes from what it kept, and a look-and-fix loop checks the page in a real browser.\n\nFor anyone designing a landing page, marketing site, portfolio or product page with an agent. It never copies a section, layout, copy or picture from a reference. Not meant for dashboards or app screens.\n\nNeeds a regards.design account on any plan, Free included, for the MCP server. The browser check needs Node 22+ and Chrome, Edge or Chromium.",
+        "developerName": "Filip Wojda",
+        "category": "Design",
+        "capabilities": [],
+        "websiteURL": "https://www.regards.design",
+        "supportURL": "https://www.regards.design/support",
+        "privacyPolicyURL": "https://www.regards.design/privacy",
+        "termsOfServiceURL": "https://www.regards.design/terms",
+        "defaultPrompt": [
+          "Design the homepage for my developer-tools startup from real website references.",
+          "Find real pricing sections that suit this product and give me a direction.",
+          "Review this landing page against well-made real sites and fix what looks generic."
+        ],
+        "brandColor": "#000000",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

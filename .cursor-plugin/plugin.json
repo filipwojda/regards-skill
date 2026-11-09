@@ -1,0 +1,29 @@
+{
+  "name": "regards",
+  "description": "Your agent researches real websites before it designs one: it searches regards.design's hand-picked website sections by look, keeps the ones that fit the brief and derives the direction from them. Comes with the regards.design MCP server.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Filip Wojda"
+  },
+  "homepage": "https://www.regards.design/skill",
+  "repository": "https://github.com/filipwojda/regards-skill",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "web-design",
+    "art-direction",
+    "design-inspiration",
+    "landing-page",
+    "frontend",
+    "ui",
+    "mcp",
+    "agent-skills"
+  ],
+  "logo": "assets/icon.png",
+  "skills": "./skills/",
+  "mcpServers": {
+    "regards": {
+      "url": "https://mcp.regards.design/mcp"
+    }
+  }
+}

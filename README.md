@@ -13,13 +13,36 @@ direction from what it kept.
 
 ## Install
 
-```bash
-npx skills add filipwojda/regards-skill
-claude mcp add --transport http regards https://mcp.regards.design/mcp
+As a plugin, the skill comes with the regards.design MCP server, so there is nothing else to add.
+
+Claude Code (2.1.275 or later; before that, `/plugin marketplace add filipwojda/regards-skill`, then
+`/plugin install regards@regards`):
+
+```
+/plugin install regards --marketplace filipwojda/regards-skill
 ```
 
-The second line connects the regards.design MCP server (Claude Code; other agents add the same URL in
-their MCP settings). Without it the skill falls back to tasteskill's deal and says so.
+Codex, then install regards from its plugins list:
+
+```bash
+codex plugin marketplace add filipwojda/regards-skill
+```
+
+Gemini CLI:
+
+```bash
+gemini extensions install https://github.com/filipwojda/regards-skill
+```
+
+Any other agent, the skill on its own:
+
+```bash
+npx skills add filipwojda/regards-skill
+```
+
+Then add `https://mcp.regards.design/mcp` in the agent's MCP settings (in Claude Code,
+`claude mcp add --transport http regards https://mcp.regards.design/mcp`). Without the server the skill
+falls back to tasteskill's deal and says so. The server signs in with your regards.design account.
 
 ## What changed from tasteskill
 
@@ -44,6 +67,12 @@ original deal, kept as the fallback.
 ## Requirements
 
 Node 22+ and Chrome, Edge or Chromium for `inspect.mjs`. A regards.design account for the MCP server, on any plan, Free included.
+
+## Plugin files
+
+One skill in `skills/`, one server, a manifest per agent: `.claude-plugin/` and `.mcp.json` for Claude Code,
+`plugin.json`, `mcp.json` and `.agents/plugins/` for Codex and other Agent Plugins clients, `.cursor-plugin/`
+for Cursor and `gemini-extension.json` for Gemini CLI. They share one description; change it in all of them.
 
 ## Credit
 
